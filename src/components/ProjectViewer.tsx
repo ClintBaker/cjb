@@ -118,12 +118,20 @@ export function ProjectViewer({ projects, featured }: ProjectViewerProps) {
               }`}
             >
               <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-900">
-                <Image
-                  src={project.screenshotUrl}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                />
+                {project.screenshotUrl ? (
+                  <Image
+                    src={project.screenshotUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-zinc-800 via-zinc-900 to-black px-2 text-center">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-300">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="flex min-w-0 flex-1 flex-col justify-between gap-1">
                 <div className="space-y-0.5">

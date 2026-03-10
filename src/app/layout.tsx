@@ -16,11 +16,6 @@ export const metadata: Metadata = {
   title: 'Clinton Baker | Data Enthusiast',
   description:
     'Personal portfolio showcasing selected projects, live demos, and GitHub work.',
-  icons: {
-    icon: '/cjb-fav-1.png',
-    shortcut: '/cjb-fav-1.png',
-    apple: '/cjb-fav-1.png',
-  },
 }
 
 export default function RootLayout({

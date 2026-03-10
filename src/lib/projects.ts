@@ -5,7 +5,7 @@ export type Project = {
   overview: string;
   youtubeId: string;
   githubUrl: string;
-  screenshotUrl: string;
+  screenshotUrl?: string;
   tech: string[];
   featured?: boolean;
   order: number;
@@ -14,42 +14,36 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Interactive Data Dashboard",
-    slug: "interactive-data-dashboard",
+    title: "OCR PDF Ingestion Automation",
+    slug: "ocr-pdf-ingestion-automation",
     overview:
-      "A responsive dashboard for exploring KPIs with real-time charts, filters, and dark mode. Built to feel fast and delightful on both desktop and mobile.",
-    youtubeId: "dQw4w9WgXcQ",
-    githubUrl: "https://github.com/your-username/interactive-data-dashboard",
-    screenshotUrl:
-      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      "Automates OCR-based PDF intake and downstream production data workflows, combining document processing, structured extraction, review tooling, and a production-ready Next.js dashboard.",
+    youtubeId: "onxq0dvl5k4",
+    githubUrl: "https://github.com/ClintBaker/ocr-production-data",
+    tech: ["Next.js", "TypeScript", "Prisma", "SQLite", "Google AI"],
     featured: true,
     order: 1,
   },
   {
     id: "2",
-    title: "Real‑time Collaboration Board",
-    slug: "realtime-collaboration-board",
+    title: "PGA Tour Tournament Performance Analysis",
+    slug: "pga-tour-tournament-performance-analysis",
     overview:
-      "A kanban-style collaboration tool with presence indicators, drag-and-drop cards, and optimistic UI updates for a snappy feel.",
-    youtubeId: "dQw4w9WgXcQ",
-    githubUrl: "https://github.com/your-username/realtime-collaboration-board",
-    screenshotUrl:
-      "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    tech: ["Next.js", "TypeScript", "WebSockets"],
+      "A Python-based analysis of PGA Tour tournament data exploring which strokes gained metrics most strongly correlate with stronger finishes, with notebook-driven exploration, statistical comparisons, and regression-based modeling.",
+    youtubeId: "UdU8GI5tV3o",
+    githubUrl: "https://github.com/ClintBaker/pga-tour-analysis",
+    tech: ["Python", "pandas", "NumPy", "matplotlib", "SciPy", "Jupyter"],
     order: 2,
   },
   {
     id: "3",
-    title: "Personal Finance Tracker",
-    slug: "personal-finance-tracker",
+    title: "Student Academic Performance Analysis",
+    slug: "student-academic-performance-analysis",
     overview:
-      "A minimalist finance tracker with import/export, visualizations, and budgeting envelopes designed to stay out of your way.",
-    youtubeId: "dQw4w9WgXcQ",
-    githubUrl: "https://github.com/your-username/personal-finance-tracker",
-    screenshotUrl:
-      "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    tech: ["Next.js", "Prisma", "SQLite"],
+      "An R-based portfolio analysis examining how study habits, sleep, test preparation, and internet access relate to student outcomes through exploratory analysis, feature engineering, and linear regression.",
+    youtubeId: "LFD-l6VyNJw",
+    githubUrl: "https://github.com/ClintBaker/student-academic-performance-analysis",
+    tech: ["R", "tidyverse", "rmarkdown", "knitr", "Linear Regression"],
     order: 3,
   },
 ];
