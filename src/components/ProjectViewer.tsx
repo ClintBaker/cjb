@@ -18,7 +18,9 @@ type ProjectViewerProps = {
 }
 
 export function ProjectViewer({ projects, featured }: ProjectViewerProps) {
-  const [selected, setSelected] = useState<Project>(featured)
+  const initialProject =
+    projects.find((project) => project.id !== featured.id) ?? featured
+  const [selected, setSelected] = useState<Project>(initialProject)
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">

@@ -22,7 +22,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/ClintBaker/ocr-production-data",
     tech: ["Next.js", "TypeScript", "Prisma", "SQLite", "Google AI"],
     featured: true,
-    order: 1,
+    order: 2,
   },
   {
     id: "2",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     youtubeId: "UdU8GI5tV3o",
     githubUrl: "https://github.com/ClintBaker/pga-tour-analysis",
     tech: ["Python", "pandas", "NumPy", "matplotlib", "SciPy", "Jupyter"],
-    order: 2,
+    order: 1,
   },
   {
     id: "3",
