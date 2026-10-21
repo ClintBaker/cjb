@@ -37,13 +37,20 @@ export default function Home() {
               software, and decision-making.
             </h1>
             <p className="max-w-xl text-pretty text-sm leading-relaxed text-zinc-300 sm:text-base mx-auto md:mx-0">
-              I&apos;m{' '}
-              <span className="font-medium text-zinc-100">Clinton Baker</span>,
-              a developer and data practitioner focused on building reliable
-              data pipelines, analytical tools, and software systems that turn
-              raw data into useful products. My work spans data engineering,
-              analytics, and full-stack development. I connect technical systems
-              with real business outcomes.
+              Data Systems Engineer with 2 years building production data
+              pipelines and internal tools. ASU B.S. Data Science, December
+              2026, continuing to an ASU M.S. in Computer Science — big data
+              systems — in Spring 2027.
+            </p>
+            <p className="max-w-xl text-pretty text-xs leading-relaxed text-zinc-400 sm:text-sm mx-auto md:mx-0">
+              Salt Lake City, UT • Open to remote and Salt Lake City metro
+              roles in data engineering, analytics, and software •{' '}
+              <a
+                href="mailto:clintjbaker@gmail.com"
+                className="text-zinc-200 underline-offset-4 hover:text-emerald-300 hover:underline"
+              >
+                clintjbaker@gmail.com
+              </a>
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
@@ -156,14 +163,34 @@ export default function Home() {
           <CardContent className="relative flex flex-col gap-4">
             <div className="overflow-hidden rounded-xl border border-zinc-600/70 bg-black">
               <div className="aspect-video w-full">
-                <iframe
-                  src={`https://www.youtube.com/embed/${featured.youtubeId}`}
-                  title={featured.title}
-                  className="h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                />
+                {featured.youtubeId ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${featured.youtubeId}`}
+                    title={featured.title}
+                    className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                ) : featured.liveUrl ? (
+                  <a
+                    href={featured.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-zinc-800 via-zinc-900 to-black px-6 text-center transition-colors hover:from-zinc-700 hover:via-zinc-800"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                      Live site
+                    </span>
+                    <span className="text-balance text-lg font-semibold text-zinc-50 sm:text-xl">
+                      {featured.title}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald-300">
+                      Visit the live site
+                      <span aria-hidden>↗</span>
+                    </span>
+                  </a>
+                ) : null}
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-300">
@@ -189,6 +216,53 @@ export default function Home() {
         </Card>
       </section>
 
+      {/* Experience */}
+      <section id="experience" className="space-y-6">
+        <div className="space-y-1">
+          <h2 className="text-lg font-semibold tracking-tight text-zinc-50 sm:text-xl">
+            Experience
+          </h2>
+          <p className="max-w-xl text-sm text-zinc-400">
+            Production data work, not just coursework.
+          </p>
+        </div>
+
+        <Card className="border-zinc-800/80 bg-zinc-900/60">
+          <CardHeader className="border-zinc-800/80">
+            <CardTitle className="text-base text-zinc-50 sm:text-lg">
+              Data Systems Engineer — JLB Companies
+            </CardTitle>
+            <CardDescription className="text-zinc-400">
+              Salt Lake City, UT / Remote • Dec 2023 – Jan 2026
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-300">
+              <li>
+                Built and maintained high-volume data ingestion pipelines and
+                automated ETL workflows, unifying disparate inputs into a
+                centralized Supabase PostgreSQL environment.
+              </li>
+              <li>
+                Implemented OCR-based ingestion using the Google AI API,
+                processing roughly 1,000 forms per day and avoiding an
+                estimated 5–10 minutes of manual data entry per form.
+              </li>
+              <li>
+                Built internal Next.js tools that let stakeholders securely
+                upload, edit, validate, and visualize data in real time, and
+                managed the project&apos;s CI/CD pipeline (GitHub / Vercel).
+              </li>
+              <li>
+                Developed Jupyter Notebook workflows with pandas and Plotly
+                Express to analyze trends and support leadership
+                decision-making.
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* Project viewer */}
       <section id="projects" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
@@ -204,6 +278,43 @@ export default function Home() {
         </div>
 
         <ProjectViewer projects={projects} featured={featured} />
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="space-y-4">
+        <div className="space-y-1">
+          <h2 className="text-lg font-semibold tracking-tight text-zinc-50 sm:text-xl">
+            Contact
+          </h2>
+        </div>
+        <p className="max-w-xl text-sm leading-relaxed text-zinc-300">
+          Salt Lake City, UT • Open to remote and Salt Lake City metro roles
+          in data engineering, analytics, and software •{' '}
+          <a
+            href="mailto:clintjbaker@gmail.com"
+            className="text-zinc-100 underline-offset-4 hover:text-emerald-300 hover:underline"
+          >
+            clintjbaker@gmail.com
+          </a>
+        </p>
+        <p className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+          <a
+            href="https://www.linkedin.com/in/clintjbaker"
+            target="_blank"
+            rel="noreferrer"
+            className="text-zinc-400 underline-offset-4 transition-colors hover:text-zinc-100 hover:underline"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/ClintBaker"
+            target="_blank"
+            rel="noreferrer"
+            className="text-zinc-400 underline-offset-4 transition-colors hover:text-zinc-100 hover:underline"
+          >
+            GitHub
+          </a>
+        </p>
       </section>
     </main>
   )
