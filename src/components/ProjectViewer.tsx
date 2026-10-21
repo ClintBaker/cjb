@@ -29,14 +29,34 @@ export function ProjectViewer({ projects, featured }: ProjectViewerProps) {
         <CardContent className="flex flex-col gap-5 p-5 sm:p-6">
           <div className="overflow-hidden rounded-xl border border-zinc-800/80 bg-black">
             <div className="aspect-video w-full">
-              <iframe
-                src={`https://www.youtube.com/embed/${selected.youtubeId}`}
-                title={selected.title}
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              />
+              {selected.youtubeId ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${selected.youtubeId}`}
+                  title={selected.title}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              ) : selected.liveUrl ? (
+                <a
+                  href={selected.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-zinc-800 via-zinc-900 to-black px-6 text-center transition-colors hover:from-zinc-700 hover:via-zinc-800"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                    Live site
+                  </span>
+                  <span className="text-balance text-lg font-semibold text-zinc-50 sm:text-xl">
+                    {selected.title}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald-300">
+                    Visit the live site
+                    <span aria-hidden>↗</span>
+                  </span>
+                </a>
+              ) : null}
             </div>
           </div>
           <div className="space-y-3">
@@ -73,12 +93,39 @@ export function ProjectViewer({ projects, featured }: ProjectViewerProps) {
                 </svg>
                 <span>View on GitHub</span>
               </a>
-              <a
-                href={`https://youtu.be/${selected.youtubeId}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
-              >
+              {selected.liveUrl ? (
+                <a
+                  href={selected.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <span>Visit live site</span>
+                </a>
+              ) : null}
+              {selected.youtubeId ? (
+                <a
+                  href={`https://youtu.be/${selected.youtubeId}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -89,8 +136,9 @@ export function ProjectViewer({ projects, featured }: ProjectViewerProps) {
                 >
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
-                <span>Watch on YouTube</span>
-              </a>
+                  <span>Watch on YouTube</span>
+                </a>
+              ) : null}
             </div>
           </div>
         </CardContent>
